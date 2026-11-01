@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Daily_Production_Log","Data_Dictionary","Maintenance_Downtime","Monthly_Financial","Raw_Materials_Weekly","Sales_Transactions"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Daily_Production_Log
+ref table DateTableTemplate_d264f27c-65b5-46ce-8da1-c949172f43f2
+ref table LocalDateTable_ee00cfd0-c3a8-48da-8a56-d0994a244a2b
+ref table Data_Dictionary
+ref table Maintenance_Downtime
+ref table LocalDateTable_272752f9-01e2-43ca-9e7a-529d978411e0
+ref table Monthly_Financial
+ref table Raw_Materials_Weekly
+ref table Sales_Transactions
+ref table LocalDateTable_715dc0ef-157c-45e3-9b54-9af3b08d24da
+ref table Dim_Date
+ref table LocalDateTable_1c7683b6-2f28-4def-9748-9eef6a7b933d
+
+ref cultureInfo en-US
+

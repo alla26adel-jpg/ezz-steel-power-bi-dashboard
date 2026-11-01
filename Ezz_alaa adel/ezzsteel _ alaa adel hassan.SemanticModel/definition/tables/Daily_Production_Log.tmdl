@@ -1,0 +1,262 @@
+table Daily_Production_Log
+	lineageTag: fdaba09d-3bfe-4adc-999f-df4d088c1eef
+
+	measure 'Total Sales' = SUM(Sales_Transactions[Revenue_EGP])
+		lineageTag: fc5f1d73-90a3-43f8-97cf-4e226fab2a33
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Quantity' =
+			
+			SUM(Sales_Transactions[Quantity_Tons])
+		lineageTag: 07f65893-e502-4e8f-aebc-1e10c38d97d0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Customers' =
+			
+			DISTINCTCOUNT(Sales_Transactions[Customer_ID])
+		formatString: 0
+		lineageTag: c3156542-c03a-4103-95b4-3351a94c4ab5
+
+	measure 'Export Sales' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    Sales_Transactions[Is_Export] = "Yes"
+			)
+		lineageTag: c18cbb1e-640c-448d-95cc-a505f418f602
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f8614f9a-bfd3-45e1-bef3-dfed487e094d
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: f1aff870-187b-493b-8acc-401b281ac63c
+			defaultHierarchy: LocalDateTable_ee00cfd0-c3a8-48da-8a56-d0994a244a2b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Day_of_Week
+		dataType: string
+		lineageTag: e5731948-4d52-4ea2-be01-56910f8e1d4a
+		summarizeBy: none
+		sourceColumn: Day_of_Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week_No
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c4bb5e6-8bc5-4e44-b141-91910dd0cea9
+		summarizeBy: sum
+		sourceColumn: Week_No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 78df4370-8c9f-4c15-a97c-55b4fe4d84a0
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: 80c798a9-df5c-475f-8589-77ff84c9a863
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 50018395-a244-4d53-b515-e289934c1f8a
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant
+		dataType: string
+		lineageTag: 1cd0d43c-351e-498e-b14a-8102ff6a2ef6
+		summarizeBy: none
+		sourceColumn: Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column Furnace_ID
+		dataType: string
+		lineageTag: 63b6a632-8a18-457a-b3e5-ebbeda1c9d8d
+		summarizeBy: none
+		sourceColumn: Furnace_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Type
+		dataType: string
+		lineageTag: a5ebbb02-7d86-40d7-934e-69ba046e911e
+		summarizeBy: none
+		sourceColumn: Product_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Steel_Grade
+		dataType: string
+		lineageTag: 812782c1-cea0-49bc-a7a4-a680466c6f7b
+		summarizeBy: none
+		sourceColumn: Steel_Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Production_Tons
+		dataType: double
+		formatString: 0
+		lineageTag: 2ffd2753-e220-4d68-b3d2-d8ee732678ae
+		summarizeBy: sum
+		sourceColumn: Production_Tons
+
+		annotation SummarizationSetBy = Automatic
+
+	column Planned_Tons
+		dataType: string
+		lineageTag: 0ad4c21b-bb55-4f63-8ac3-a7ae9689d720
+		summarizeBy: none
+		sourceColumn: Planned_Tons
+
+		annotation SummarizationSetBy = Automatic
+
+	column Yield_%
+		dataType: double
+		lineageTag: 4b95080a-fa70-4cdc-b23b-fa5bf818222e
+		summarizeBy: sum
+		sourceColumn: Yield_%
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Energy_MWh
+		dataType: double
+		lineageTag: 357f2823-190c-4230-b75c-381ca4612b7e
+		summarizeBy: sum
+		sourceColumn: Energy_MWh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Scrap_Consumed_Tons
+		dataType: double
+		lineageTag: e5118ce1-565e-4c41-98d5-734c54e95607
+		summarizeBy: sum
+		sourceColumn: Scrap_Consumed_Tons
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tap_to_Tap_Minutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 62d9fa91-b4ad-45ff-a15f-a412be083831
+		summarizeBy: sum
+		sourceColumn: Tap_to_Tap_Minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Heat_Count
+		dataType: int64
+		formatString: 0
+		lineageTag: 123bc143-0212-4834-95b5-a2a78cb4fac5
+		summarizeBy: sum
+		sourceColumn: Heat_Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column Downtime_Hours
+		dataType: double
+		lineageTag: 5479bcba-851d-4a9f-a91c-ae79d6f23f8d
+		summarizeBy: sum
+		sourceColumn: Downtime_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Shift
+		dataType: string
+		lineageTag: 1f728c3e-f963-4305-ab81-d3f5a1731252
+		summarizeBy: none
+		sourceColumn: Shift
+
+		annotation SummarizationSetBy = Automatic
+
+	column QC_Pass_Rate_%
+		dataType: double
+		lineageTag: 47159405-01a3-45a4-a4df-34a47fceeb5d
+		summarizeBy: sum
+		sourceColumn: QC_Pass_Rate_%
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Daily_Production_Log = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\EzzSteel_Full_Dataset.xlsx"), null, true),
+				    Daily_Production_Log_Sheet = Source{[Item="Daily_Production_Log",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Daily_Production_Log_Sheet, [PromoteAllScalars=true]),
+				    #"Sorted Rows" = Table.Sort(#"Promoted Headers",{{"Date", Order.Ascending}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Sorted Rows", {{"Date", type date}}, "en-GB"),
+				    #"Sorted Rows1" = Table.Sort(#"Changed Type with Locale",{{"Date", Order.Ascending}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows1", each true),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"Week_No", Int64.Type}, {"Day_of_Week", type text}, {"Month", Int64.Type}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Changed Type", each true),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows1",{{"Quarter", type text}, {"Year", Int64.Type}}),
+				    #"Filtered Rows2" = Table.SelectRows(#"Changed Type1", each true),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Filtered Rows2",{{"Plant", type text}, {"Furnace_ID", type text}}),
+				    #"Filtered Rows3" = Table.SelectRows(#"Changed Type2", each true),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Filtered Rows3",{{"Product_Type", type text}}),
+				    #"Filtered Rows4" = Table.SelectRows(#"Changed Type3", each true),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows4",{{"Product_Type", Text.Proper, type text}}),
+				    #"Filtered Rows5" = Table.SelectRows(#"Capitalized Each Word", each true),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Filtered Rows5",{{"Steel_Grade", type text}}),
+				    #"Filtered Rows6" = Table.SelectRows(#"Changed Type4", each true),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Filtered Rows6",{{"Production_Tons", type number}}),
+				    #"Filtered Rows7" = Table.SelectRows(#"Changed Type5", each true),
+				    #"Filtered Rows8" = Table.SelectRows(#"Filtered Rows7", each [Production_Tons] >= 0),
+				    #"Changed Type6" = Table.TransformColumnTypes(#"Filtered Rows8",{{"Planned_Tons", type text}}),
+				    #"Filtered Rows9" = Table.SelectRows(#"Changed Type6", each true),
+				    #"Changed Type7" = Table.TransformColumnTypes(#"Filtered Rows9",{{"Yield_%", Percentage.Type}}),
+				    #"Filtered Rows10" = Table.SelectRows(#"Changed Type7", each true),
+				    #"Changed Type8" = Table.TransformColumnTypes(#"Filtered Rows10",{{"Energy_MWh", type number}}),
+				    #"Filtered Rows11" = Table.SelectRows(#"Changed Type8", each true),
+				    #"Changed Type9" = Table.TransformColumnTypes(#"Filtered Rows11",{{"Scrap_Consumed_Tons", type number}, {"Tap_to_Tap_Minutes", Int64.Type}}),
+				    #"Filtered Rows12" = Table.SelectRows(#"Changed Type9", each true),
+				    #"Changed Type10" = Table.TransformColumnTypes(#"Filtered Rows12",{{"Heat_Count", Int64.Type}, {"Downtime_Hours", type number}}),
+				    #"Filtered Rows13" = Table.SelectRows(#"Changed Type10", each true),
+				    #"Filtered Rows14" = Table.SelectRows(#"Filtered Rows13", each [Downtime_Hours] >= 0),
+				    #"Changed Type11" = Table.TransformColumnTypes(#"Filtered Rows14",{{"Shift", type text}}),
+				    #"Filtered Rows15" = Table.SelectRows(#"Changed Type11", each true),
+				    #"Changed Type12" = Table.TransformColumnTypes(#"Filtered Rows15",{{"QC_Pass_Rate_%", type number}})
+				in
+				    #"Changed Type12"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

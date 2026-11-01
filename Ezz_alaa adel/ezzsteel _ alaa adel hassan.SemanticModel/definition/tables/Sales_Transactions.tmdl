@@ -1,0 +1,227 @@
+table Sales_Transactions
+	lineageTag: 63466345-464f-4c37-b555-4515b82c65f5
+
+	column Invoice_ID
+		dataType: string
+		lineageTag: 13e0fe0e-6396-43bd-ad33-57940652aa67
+		summarizeBy: none
+		sourceColumn: Invoice_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer_ID
+		dataType: string
+		lineageTag: b192aa78-b406-41d7-8e91-7f8e46f4fa88
+		summarizeBy: none
+		sourceColumn: Customer_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer_Name
+		dataType: string
+		lineageTag: 5ff8c290-0b34-4d06-845b-02c27d25ecbb
+		summarizeBy: none
+		sourceColumn: Customer_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer_Segment
+		dataType: string
+		lineageTag: 2abf8bc4-0e70-4c10-8b4f-8128ff5e22e7
+		summarizeBy: none
+		sourceColumn: Customer_Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Governorate
+		dataType: string
+		lineageTag: 9567fa93-d3fe-4499-b3f5-24c6ba54480c
+		summarizeBy: none
+		sourceColumn: Governorate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: fb90e3fa-805f-4f9a-b6d3-121864932462
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Type
+		dataType: string
+		lineageTag: 4a9e1468-21a7-4610-96da-c668ff1b3c14
+		summarizeBy: none
+		sourceColumn: Product_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Steel_Grade
+		dataType: string
+		lineageTag: bb7bf7b0-c6f8-4336-b8f7-c9b8e9afe938
+		summarizeBy: none
+		sourceColumn: Steel_Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Thickness_mm
+		dataType: double
+		lineageTag: fd282633-6735-4d9b-8852-3a9eea2f07eb
+		summarizeBy: sum
+		sourceColumn: Thickness_mm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Width_mm
+		dataType: int64
+		formatString: 0
+		lineageTag: 03b2b9b7-8dad-4a09-9ab5-79300816d842
+		summarizeBy: sum
+		sourceColumn: Width_mm
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity_Tons
+		dataType: double
+		lineageTag: 1560d5c3-7edf-4314-9a6c-688d765c21f5
+		summarizeBy: sum
+		sourceColumn: Quantity_Tons
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Unit_Price_EGP
+		dataType: int64
+		formatString: 0
+		lineageTag: fa687885-45df-4aed-bff4-7f21ba68b668
+		summarizeBy: sum
+		sourceColumn: Unit_Price_EGP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revenue_EGP
+		dataType: double
+		lineageTag: d71daa6a-3964-4db6-87f4-2c067a7e3190
+		summarizeBy: sum
+		sourceColumn: Revenue_EGP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Payment_Terms_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: d5f98c12-964e-4d82-988a-27764533e3ca
+		summarizeBy: sum
+		sourceColumn: Payment_Terms_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Actual_Payment_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c62d7ed-6f44-4536-bdd6-a4f247510621
+		summarizeBy: sum
+		sourceColumn: Actual_Payment_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discount_%
+		dataType: double
+		lineageTag: 26955656-2dc1-461f-b598-c597c3f66179
+		summarizeBy: sum
+		sourceColumn: Discount_%
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Is_Export
+		dataType: string
+		lineageTag: b4251ba0-4710-496a-9d40-72f63a191efa
+		summarizeBy: none
+		sourceColumn: Is_Export
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: a56d4426-eaaf-49df-bb1a-488d645a773a
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exchange_Rate_EGP
+		dataType: double
+		lineageTag: 7ca47386-de62-4ce5-b909-93b2f56d3fd6
+		summarizeBy: sum
+		sourceColumn: Exchange_Rate_EGP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Invoice_Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 03b8f42c-e690-4edb-8e68-93e4817221d2
+		summarizeBy: none
+		sourceColumn: Invoice_Date
+
+		variation Variation
+			isDefault
+			relationship: 97697006-0a25-4776-9cd0-fa6973b2dc76
+			defaultHierarchy: LocalDateTable_715dc0ef-157c-45e3-9b54-9af3b08d24da.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Invoice Date Only' =
+			
+			DATEVALUE(Sales_Transactions[Invoice_Date])
+		formatString: General Date
+		lineageTag: ceb951e0-cf42-4c10-88a0-c523082291f9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales_Transactions = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\EzzSteel_Full_Dataset.xlsx"), null, true),
+				    Sales_Transactions_Sheet = Source{[Item="Sales_Transactions",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sales_Transactions_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Invoice_ID", type text}, {"Invoice_Date", type text}, {"Customer_ID", type text}, {"Customer_Name", type text}, {"Customer_Segment", type text}, {"Governorate", type text}, {"Country", type text}, {"Product_Type", type text}, {"Steel_Grade", type text}, {"Thickness_mm", type number}, {"Width_mm", Int64.Type}, {"Quantity_Tons", type number}, {"Unit_Price_EGP", Int64.Type}, {"Revenue_EGP", type any}, {"Payment_Terms_Days", Int64.Type}, {"Actual_Payment_Days", Int64.Type}, {"Discount_%", type number}, {"Is_Export", type text}, {"Currency", type text}, {"Exchange_Rate_EGP", type number}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true),
+				    #"Added Custom" = Table.AddColumn(#"Filtered Rows", "Invoice_Date_Clean", each try Date.FromText([Invoice_Date], "en-US") otherwise null),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Invoice_Date_Clean", type date}}),
+				    #"Sorted Rows" = Table.Sort(#"Changed Type1",{{"Invoice_Date_Clean", Order.Ascending}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Sorted Rows", each ([Invoice_Date_Clean] <> null)),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows1",{"Invoice_Date"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Invoice_Date_Clean", "Invoice_Date"}}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Renamed Columns",{"Invoice_ID", "Invoice_Date", "Customer_ID", "Customer_Name", "Customer_Segment", "Governorate", "Country", "Product_Type", "Steel_Grade", "Thickness_mm", "Width_mm", "Quantity_Tons", "Unit_Price_EGP", "Revenue_EGP", "Payment_Terms_Days", "Actual_Payment_Days", "Discount_%", "Is_Export", "Currency", "Exchange_Rate_EGP"}),
+				    #"Filtered Rows2" = Table.SelectRows(#"Reordered Columns", each true),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Filtered Rows2",{{"Customer_Segment", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type2","—","Unknown",Replacer.ReplaceText,{"Governorate"}),
+				    #"Filtered Rows3" = Table.SelectRows(#"Replaced Value", each true),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows3",{{"Product_Type", Text.Proper, type text}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Capitalized Each Word",{{"Revenue_EGP", type text}}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Changed Type3"," EGP"," ",Replacer.ReplaceText,{"Revenue_EGP"}),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Replaced Value1",{{"Discount_%", Percentage.Type}}),
+				    #"Filtered Rows4" = Table.SelectRows(#"Changed Type4", each true),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Filtered Rows4",{{"Exchange_Rate_EGP", type number}, {"Revenue_EGP", type number}})
+				in
+				    #"Changed Type5"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

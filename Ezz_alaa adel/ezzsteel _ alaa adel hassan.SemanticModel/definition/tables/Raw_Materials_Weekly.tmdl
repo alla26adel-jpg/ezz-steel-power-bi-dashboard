@@ -1,0 +1,187 @@
+table Raw_Materials_Weekly
+	lineageTag: f113386c-c3ab-47ae-aee1-d23fcbe39333
+
+	column Week_Start_Date
+		dataType: string
+		lineageTag: c6062840-0a10-4550-a433-acc42f74bf94
+		summarizeBy: none
+		sourceColumn: Week_Start_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 36473d3c-1b73-4ea8-bea9-eef48c79b429
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b2385ed-2284-4b1f-866d-cbdaa59dd53b
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: 40079ce8-a92e-4795-84d4-afda83dc6f58
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week_No
+		dataType: int64
+		formatString: 0
+		lineageTag: 670d33d1-b89b-47e5-b51d-e787726745a0
+		summarizeBy: sum
+		sourceColumn: Week_No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Scrap_Type
+		dataType: string
+		lineageTag: ee70a50e-549a-484a-a50f-38ff513056f5
+		summarizeBy: none
+		sourceColumn: Scrap_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Scrap_Origin
+		dataType: string
+		lineageTag: 697b6b0c-6f05-4640-9e8d-1cd7cfb4e7f5
+		summarizeBy: none
+		sourceColumn: Scrap_Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Scrap_Price_USD_per_Ton
+		dataType: double
+		lineageTag: 2768ded4-5e23-43cc-80b9-99c27288bba3
+		summarizeBy: sum
+		sourceColumn: Scrap_Price_USD_per_Ton
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Scrap_Purchased_Tons
+		dataType: string
+		lineageTag: aa8d6b30-1a80-4fe8-818f-f371d41bd3f9
+		summarizeBy: none
+		sourceColumn: Scrap_Purchased_Tons
+
+		annotation SummarizationSetBy = Automatic
+
+	column Iron_Ore_Price_USD_per_Ton
+		dataType: double
+		lineageTag: 9bc7d0d1-63c0-4424-b8fa-21ada3e26f5b
+		summarizeBy: sum
+		sourceColumn: Iron_Ore_Price_USD_per_Ton
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Iron_Ore_Purchased_Tons
+		dataType: int64
+		formatString: 0
+		lineageTag: b576fba4-c7c2-487f-a5a1-da18f493bfc0
+		summarizeBy: sum
+		sourceColumn: Iron_Ore_Purchased_Tons
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coking_Coal_Price_USD_per_Ton
+		dataType: double
+		lineageTag: 05644002-92e0-4b5f-8e93-359c46b730ac
+		summarizeBy: sum
+		sourceColumn: Coking_Coal_Price_USD_per_Ton
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DRI_Purchased_Tons
+		dataType: int64
+		formatString: 0
+		lineageTag: 0535d0c8-6ec5-4802-b5e9-c5a085978087
+		summarizeBy: sum
+		sourceColumn: DRI_Purchased_Tons
+
+		annotation SummarizationSetBy = Automatic
+
+	column Electricity_Cost_EGP_per_MWh
+		dataType: double
+		lineageTag: cf9869cf-1ea9-4a53-9e42-77a1768d2153
+		summarizeBy: sum
+		sourceColumn: Electricity_Cost_EGP_per_MWh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NG_Price_EGP_per_MMBtu
+		dataType: double
+		lineageTag: 969733f4-cc21-47c0-b23b-b26f498b8b82
+		summarizeBy: sum
+		sourceColumn: NG_Price_EGP_per_MMBtu
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Total_Energy_Cost_EGP_M
+		dataType: double
+		lineageTag: 4f408b1d-cd23-46a8-a096-dbcb6abfd011
+		summarizeBy: sum
+		sourceColumn: Total_Energy_Cost_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Scrap_Inventory_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: 30e61b6b-0fdd-4a3a-85f5-3d3bf094cb7e
+		summarizeBy: sum
+		sourceColumn: Scrap_Inventory_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Supplier_Lead_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d9ba6cd-5b2f-471c-a625-e348a7c452d1
+		summarizeBy: sum
+		sourceColumn: Supplier_Lead_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column PO_Number
+		dataType: string
+		lineageTag: f4c9ea0a-3a37-43a4-b1a3-46b44c3d3db7
+		summarizeBy: none
+		sourceColumn: PO_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Raw_Materials_Weekly = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\EzzSteel_Full_Dataset.xlsx"), null, true),
+				    Raw_Materials_Weekly_Sheet = Source{[Item="Raw_Materials_Weekly",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Raw_Materials_Weekly_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Week_Start_Date", type text}, {"Year", Int64.Type}, {"Month", Int64.Type}, {"Quarter", type text}, {"Week_No", Int64.Type}, {"Scrap_Type", type text}, {"Scrap_Origin", type text}, {"Scrap_Price_USD_per_Ton", type number}, {"Scrap_Purchased_Tons", type any}, {"Iron_Ore_Price_USD_per_Ton", type number}, {"Iron_Ore_Purchased_Tons", Int64.Type}, {"Coking_Coal_Price_USD_per_Ton", type number}, {"DRI_Purchased_Tons", Int64.Type}, {"Electricity_Cost_EGP_per_MWh", type number}, {"NG_Price_EGP_per_MMBtu", type number}, {"Total_Energy_Cost_EGP_M", type number}, {"Scrap_Inventory_Days", Int64.Type}, {"Supplier_Lead_Days", Int64.Type}, {"PO_Number", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

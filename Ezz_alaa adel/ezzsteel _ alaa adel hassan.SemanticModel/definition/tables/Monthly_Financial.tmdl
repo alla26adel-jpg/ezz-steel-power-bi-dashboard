@@ -1,0 +1,221 @@
+table Monthly_Financial
+	lineageTag: bbf984af-d433-4107-967d-9867669666b7
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: ed82693d-e25c-45a7-a0af-dfd696dd320f
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c14e1ba-21c2-4ec7-9fe5-4a4bc1fab0e6
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month_Name
+		dataType: string
+		lineageTag: bd91b54b-e9e7-430a-9070-8d2b59452df0
+		summarizeBy: none
+		sourceColumn: Month_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: 8f0f368e-b097-46e7-9ac5-e1cefeb12e00
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revenue_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: 00f4a970-cb19-4d8c-9b5b-3b085cfd0903
+		summarizeBy: sum
+		sourceColumn: Revenue_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column COGS_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d9fd224-8b28-477e-9ccc-8579a16ba2a0
+		summarizeBy: sum
+		sourceColumn: COGS_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gross_Profit_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: 7901b0c1-b0da-4bd6-b1e2-f5c09180126b
+		summarizeBy: sum
+		sourceColumn: Gross_Profit_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column Selling_Exp_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a1f9bda-277c-498e-a106-123aaafb22f1
+		summarizeBy: sum
+		sourceColumn: Selling_Exp_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column GA_Exp_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: fe233ca9-c1eb-4bda-97ff-9884dc3a3c20
+		summarizeBy: sum
+		sourceColumn: GA_Exp_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column EBITDA_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: 61e0e463-7da8-4e36-9829-dc5d93760e66
+		summarizeBy: sum
+		sourceColumn: EBITDA_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column EBIT_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: 8850b472-56bd-4bfa-bb15-6cf0f03645fd
+		summarizeBy: sum
+		sourceColumn: EBIT_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column Interest_Exp_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: 0db1bbab-0241-424c-bb40-f7143494779d
+		summarizeBy: sum
+		sourceColumn: Interest_Exp_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column FX_Gain_Loss_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: f0e0f81f-09e9-428b-8434-306e2baf002f
+		summarizeBy: sum
+		sourceColumn: FX_Gain_Loss_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column EBT_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fb34b95-7c76-4bc4-a132-8082f008056e
+		summarizeBy: sum
+		sourceColumn: EBT_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tax_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: cd12e872-0235-48f5-b435-7c8b8b827b9c
+		summarizeBy: sum
+		sourceColumn: Tax_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column Net_Profit_EGP_M
+		dataType: int64
+		formatString: 0
+		lineageTag: ed2c2494-fba6-4664-8416-92ef79f1d685
+		summarizeBy: sum
+		sourceColumn: Net_Profit_EGP_M
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exports_USD_M
+		dataType: double
+		lineageTag: e16a490e-86de-47d1-96e6-367b047221ed
+		summarizeBy: sum
+		sourceColumn: Exports_USD_M
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EGP_USD_Rate
+		dataType: double
+		lineageTag: 52a8a57a-bbff-4950-a032-33005c9dac33
+		summarizeBy: sum
+		sourceColumn: EGP_USD_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Total_Sales_Volume_KTon
+		dataType: double
+		lineageTag: 435f2c0e-1043-42ac-989a-7ea4ea5c9c22
+		summarizeBy: sum
+		sourceColumn: Total_Sales_Volume_KTon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Avg_Selling_Price_EGP_per_Ton
+		dataType: double
+		lineageTag: 1802b33e-9a3a-4cb4-a4aa-7e7f73943404
+		summarizeBy: sum
+		sourceColumn: Avg_Selling_Price_EGP_per_Ton
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Gross_Margin_%
+		dataType: int64
+		formatString: 0
+		lineageTag: 13d1cbdc-44c0-4167-bfc0-af3ed1335bb7
+		summarizeBy: sum
+		sourceColumn: Gross_Margin_%
+
+		annotation SummarizationSetBy = Automatic
+
+	column EBITDA_Margin_%
+		dataType: double
+		formatString: 0
+		lineageTag: 6fa9b563-8fbe-44eb-99ce-bb6b6af3e237
+		summarizeBy: sum
+		sourceColumn: EBITDA_Margin_%
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Monthly_Financial = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\EzzSteel_Full_Dataset.xlsx"), null, true),
+				    Monthly_Financial_Sheet = Source{[Item="Monthly_Financial",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Monthly_Financial_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Year", Int64.Type}, {"Month", Int64.Type}, {"Month_Name", type text}, {"Quarter", type text}, {"Revenue_EGP_M", Int64.Type}, {"COGS_EGP_M", Int64.Type}, {"Gross_Profit_EGP_M", Int64.Type}, {"Selling_Exp_EGP_M", Int64.Type}, {"GA_Exp_EGP_M", Int64.Type}, {"EBITDA_EGP_M", Int64.Type}, {"EBIT_EGP_M", Int64.Type}, {"Interest_Exp_EGP_M", Int64.Type}, {"FX_Gain_Loss_EGP_M", Int64.Type}, {"EBT_EGP_M", Int64.Type}, {"Tax_EGP_M", Int64.Type}, {"Net_Profit_EGP_M", Int64.Type}, {"Exports_USD_M", type number}, {"EGP_USD_Rate", type number}, {"Total_Sales_Volume_KTon", type number}, {"Avg_Selling_Price_EGP_per_Ton", type number}, {"Gross_Margin_%", Int64.Type}, {"EBITDA_Margin_%", Int64.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [EGP_USD_Rate] >= 0),
+				    #"Filtered Rows1" = Table.SelectRows(#"Filtered Rows", each true),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows1",{{"EBITDA_Margin_%", type number}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,63 @@
+table Data_Dictionary
+	lineageTag: b3b0b53c-9917-472a-a08b-55e5285c2d36
+
+	column Column1
+		dataType: string
+		lineageTag: cd61f94c-0423-4240-b34f-3d62494708ad
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column2
+		dataType: string
+		lineageTag: 1c471c34-6930-4e09-965e-0c7a450b1153
+		summarizeBy: none
+		sourceColumn: Column2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column3
+		dataType: string
+		lineageTag: 4d0bff14-b924-4512-9d14-fd07af0f05bf
+		summarizeBy: none
+		sourceColumn: Column3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column4
+		dataType: string
+		lineageTag: fb6be640-6d17-4bc6-abfc-c2274999ff5c
+		summarizeBy: none
+		sourceColumn: Column4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column5
+		dataType: string
+		lineageTag: 6b282e2c-4de3-4c06-93d6-533bd4e44c55
+		summarizeBy: none
+		sourceColumn: Column5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column6
+		dataType: string
+		lineageTag: 45a61430-e46d-4a05-b8bc-e2f34416c334
+		summarizeBy: none
+		sourceColumn: Column6
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Data_Dictionary = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\EzzSteel_Full_Dataset.xlsx"), null, true),
+				    Data_Dictionary_Sheet = Source{[Item="Data_Dictionary",Kind="Sheet"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Data_Dictionary_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 527.245946386497,
+        "y": 584.10582413146517
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 784.80152299999872,
+            "y": 338.3681509999995
+          },
+          "nodeIndex": "Daily_Production_Log",
+          "nodeLineageTag": "fdaba09d-3bfe-4adc-999f-df4d088c1eef",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 418.63863599999979,
+            "y": 13.198146000000037
+          },
+          "nodeIndex": "Data_Dictionary",
+          "nodeLineageTag": "b3b0b53c-9917-472a-a08b-55e5285c2d36",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 429.81824200000023,
+            "y": 317.10941899999955
+          },
+          "nodeIndex": "Maintenance_Downtime",
+          "nodeLineageTag": "d5624dea-fb5d-4cef-9367-97dc9a0af57f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 772.279755,
+            "y": 0
+          },
+          "nodeIndex": "Monthly_Financial",
+          "nodeLineageTag": "bbf984af-d433-4107-967d-9867669666b7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1157.2587319999998,
+            "y": 343.68283399999945
+          },
+          "nodeIndex": "Raw_Materials_Weekly",
+          "nodeLineageTag": "f113386c-c3ab-47ae-aee1-d23fcbe39333",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 733.226284727646,
+            "y": 667.52416317449843
+          },
+          "nodeIndex": "Sales_Transactions",
+          "nodeLineageTag": "63466345-464f-4c37-b555-4515b82c65f5",
+          "size": {
+            "height": 300,
+            "width": 279.822933308011
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1053.1000316598052,
+            "y": 707.81192386517966
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "66830984-6995-4eb4-91fe-f545763d6c44",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 123.81318287356437,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

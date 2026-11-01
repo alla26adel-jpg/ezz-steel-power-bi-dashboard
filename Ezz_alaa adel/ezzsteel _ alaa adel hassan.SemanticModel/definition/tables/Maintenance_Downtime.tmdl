@@ -1,0 +1,182 @@
+table Maintenance_Downtime
+	lineageTag: d5624dea-fb5d-4cef-9367-97dc9a0af57f
+
+	column Event_ID
+		dataType: string
+		lineageTag: 36881ca4-fbd6-4af5-8a4e-65dca293d1b4
+		summarizeBy: none
+		sourceColumn: Event_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 231c16e0-845b-4abe-b809-143702ba6acf
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 695f91db-2631-441a-bf21-edbf08ce6c3e
+			defaultHierarchy: LocalDateTable_272752f9-01e2-43ca-9e7a-529d978411e0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Plant
+		dataType: string
+		lineageTag: 5dbd68bd-bef0-45b5-8240-94764a629c5c
+		summarizeBy: none
+		sourceColumn: Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column Furnace_ID
+		dataType: string
+		lineageTag: 04823551-0432-407c-9aa7-685af0172817
+		summarizeBy: none
+		sourceColumn: Furnace_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shift
+		dataType: string
+		lineageTag: 63d4f36e-e8c9-4ecd-846a-978bf058d98b
+		summarizeBy: none
+		sourceColumn: Shift
+
+		annotation SummarizationSetBy = Automatic
+
+	column Downtime_Type
+		dataType: string
+		lineageTag: d1aca8af-af1d-44da-abca-372603f6cfad
+		summarizeBy: none
+		sourceColumn: Downtime_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Root_Cause
+		dataType: string
+		lineageTag: f59ba981-ecd9-47d3-8746-0bc71cbf997a
+		summarizeBy: none
+		sourceColumn: Root_Cause
+
+		annotation SummarizationSetBy = Automatic
+
+	column Equipment_Tag
+		dataType: string
+		lineageTag: 56227fb4-bb6b-4956-bdf0-3953d397e2e6
+		summarizeBy: none
+		sourceColumn: Equipment_Tag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Duration_Hours
+		dataType: double
+		lineageTag: 53140fb2-9473-40ad-9e54-073272208023
+		summarizeBy: none
+		sourceColumn: Duration_Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Production_Lost_Tons
+		dataType: double
+		lineageTag: 0ad88402-4b0e-410b-b219-597f93099404
+		summarizeBy: none
+		sourceColumn: Production_Lost_Tons
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Repair_Cost_EGP
+		dataType: double
+		formatString: 0
+		lineageTag: 571f5b2f-ba54-4b7a-bde9-3de14942d709
+		summarizeBy: none
+		sourceColumn: Repair_Cost_EGP
+
+		annotation SummarizationSetBy = User
+
+	column Technician_ID
+		dataType: string
+		lineageTag: b11bc5c6-ba58-4b12-893f-df1d04a407d3
+		summarizeBy: none
+		sourceColumn: Technician_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Is_Planned
+		dataType: string
+		lineageTag: e6a94ad8-3bf9-404c-b6f7-7a55588ade8a
+		summarizeBy: none
+		sourceColumn: Is_Planned
+
+		annotation SummarizationSetBy = Automatic
+
+	column Work_Order_No
+		dataType: string
+		lineageTag: c2453d29-5902-4039-a667-4ffd126d26c3
+		summarizeBy: none
+		sourceColumn: Work_Order_No
+
+		annotation SummarizationSetBy = Automatic
+
+	column MTTR_Hours
+		dataType: double
+		lineageTag: 45950ef5-67d0-44c6-bdee-6070b5599744
+		summarizeBy: none
+		sourceColumn: MTTR_Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTBF_Hours
+		dataType: double
+		lineageTag: 01e54e76-ab20-459b-a3ee-5c5bb6a10476
+		summarizeBy: none
+		sourceColumn: MTBF_Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Maintenance_Downtime = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\EzzSteel_Full_Dataset.xlsx"), null, true),
+				    Maintenance_Downtime_Sheet = Source{[Item="Maintenance_Downtime",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Maintenance_Downtime_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Equipment_Tag", type text}, {"Root_Cause", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each true),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows",{{"Downtime_Type", type text}, {"Shift", type text}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Changed Type1", each true),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Filtered Rows1",{{"Furnace_ID", type text}, {"Plant", type text}}),
+				    #"Filtered Rows2" = Table.SelectRows(#"Changed Type2", each true),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Filtered Rows2",{{"Date", type date}, {"Event_ID", type text}}),
+				    #"Filtered Rows3" = Table.SelectRows(#"Changed Type3", each true),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Filtered Rows3",{{"Duration_Hours", type number}}),
+				    #"Filtered Rows4" = Table.SelectRows(#"Changed Type4", each [Duration_Hours] >= 0),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Filtered Rows4",{{"Production_Lost_Tons", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type5"," tons","",Replacer.ReplaceText,{"Production_Lost_Tons"}),
+				    #"Changed Type6" = Table.TransformColumnTypes(#"Replaced Value",{{"Production_Lost_Tons", type number}}),
+				    #"Filtered Rows5" = Table.SelectRows(#"Changed Type6", each [Repair_Cost_EGP] >= 0),
+				    #"Changed Type7" = Table.TransformColumnTypes(#"Filtered Rows5",{{"Repair_Cost_EGP", Int64.Type}, {"Technician_ID", type text}}),
+				    #"Filtered Rows6" = Table.SelectRows(#"Changed Type7", each true),
+				    #"Changed Type8" = Table.TransformColumnTypes(#"Filtered Rows6",{{"Is_Planned", type text}, {"Work_Order_No", type text}}),
+				    #"Filtered Rows7" = Table.SelectRows(#"Changed Type8", each true),
+				    #"Changed Type9" = Table.TransformColumnTypes(#"Filtered Rows7",{{"MTTR_Hours", type number}, {"Repair_Cost_EGP", type number}, {"Production_Lost_Tons", type number}, {"MTBF_Hours", type number}}),
+				    #"Filtered Rows8" = Table.SelectRows(#"Changed Type9", each true)
+				in
+				    #"Filtered Rows8"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

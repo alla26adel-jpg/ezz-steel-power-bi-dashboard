@@ -1,0 +1,24 @@
+relationship f1aff870-187b-493b-8acc-401b281ac63c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Daily_Production_Log.Date
+	toColumn: LocalDateTable_ee00cfd0-c3a8-48da-8a56-d0994a244a2b.Date
+
+relationship 695f91db-2631-441a-bf21-edbf08ce6c3e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Maintenance_Downtime.Date
+	toColumn: LocalDateTable_272752f9-01e2-43ca-9e7a-529d978411e0.Date
+
+relationship 97697006-0a25-4776-9cd0-fa6973b2dc76
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sales_Transactions.Invoice_Date
+	toColumn: LocalDateTable_715dc0ef-157c-45e3-9b54-9af3b08d24da.Date
+
+relationship 48556d4f-5e13-434e-81f1-c30c25a34103
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Date.Date
+	toColumn: LocalDateTable_1c7683b6-2f28-4def-9748-9eef6a7b933d.Date
+
+relationship 38dc7c16-9c0a-a75c-9ca8-8e10c8796ae1
+	fromColumn: Sales_Transactions.'Invoice Date Only'
+	toColumn: Dim_Date.Date
+
